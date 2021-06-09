@@ -13,7 +13,7 @@ step6 : IF i<n
            GO TO step9
         [END OF IF]
 Step7 : read arr[i]
-step8 : i<-i+1 , GO TO step6
+step8 : i=i+1 , GO TO step6
 step9 : take input val
 step10: Display "Enter 1 for non recursive function"
 step11: Display "Enter 2 for recursive function"
@@ -46,7 +46,7 @@ step20 : IF n>0
            GO TO step23
           [END OF IF]       
 step21 : IF arr[n-1]=val
-          assign pos<-n
+          assign pos=n
          ELSE
             set i=i+1
             GO TO step20
