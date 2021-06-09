@@ -1,7 +1,7 @@
 /* a)Write C program that use both recursive and non recursive functions to perform Linear 
 search for a Key value in a given list. 
 
-          ALGORITHM TO PERFORM BINARY SEARCH FOR A GIVEN LIST
+            ALGORITHM TO PERFORM LINEAR SEARCH FOR A GIVEN LIST
 Step1 : start
 step2 : declare n,i,val,pos,option
 step3 : input n 
@@ -24,48 +24,39 @@ step13: IF option = 1
              GO TO step 19
         ELSE 
            display "Enter correct option"
-             GO TO step 22
+             GO TO step 23
                [END OF IF]
-step14 : Initialize beg=0, end=n-1, pos=-1
-step15 : repeat step17 while i<=n
-step16 : set mid=(beg+end)/2
-step17 : IF arr[mid]=val
-             set pos= mid
-             print pos
-             go to step22
-         Else if arr[mid] > val
-              set end=mid-1
-         Else
-              set beg=mid+1
+step14 : set found=0, pos=-1
+step15 : intilize i=0
+step16 : repeat step17 while i<=n
+step17 : IF arr[i]=val
+            set pos= i
+          print pos
+         go to step23
          [END OF IF]
-         [End of loop]
+          set i=i+1
 step18: IF pos = -1
            print "value not found"
            [END OF IF]
-            GO TO STEP22  
-step19 : initialize beg=0, end=n-1, pos=-1
-step20 : IF beg<=end
-            set mid=(beg+end)/2
-            IF arr[mid]=val
-                 assign pos = mid
-                 GO TO step22
-            ELSE IF arr[mid] > val
-                 set end = mid-1
-                 go to step 20
-            ELSE
-                set beg = mid+1
-                GO TO step20
-             [END OF IF] 
-         ELSE  
-            assign pos = -1
-             [END OF IF] 
-step21 : IF pos!=-1
+            GO TO STEP23   
+step19 : set pos=0
+step20 : IF n>0
+           GO TO step21
+          ELSE 
+           GO TO step23
+          [END OF IF]       
+step21 : IF arr[n-1]=val
+          assign pos<-n
+         ELSE
+            set i=i+1
+            GO TO step20
+          [END OF IF]
+step22: IF pos!=0
            print "element is found"
-             go to step 22
          ELSE
             print "element not found"
-           GO TO step22
-step22: STOP
+           GO TO step23
+step23 : stop
               */
 
 #include<stdio.h>
