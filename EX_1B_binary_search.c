@@ -13,7 +13,7 @@ step6 : IF i<n
            GO TO step9
         [END OF IF]
 Step7 : read arr[i]
-step8 : i<-i+1 , GO TO step6
+step8 : i=i+1 , GO TO step6
 step9 : take input val
 step10: Display "Enter 1 for non recursive function"
 step11: Display "Enter 2 for recursive function"
