@@ -1,4 +1,4 @@
-/* a)Write C program that use both recursive and non recursive functions to perform Binary 
+/* b)Write C program that use both recursive and non recursive functions to perform Binary 
 search for a Key value in a given list. */
 /*
           ALGORITHM TO PERFORM BINARY SEARCH FOR A GIVEN LIST
