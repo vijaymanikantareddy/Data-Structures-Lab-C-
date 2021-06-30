@@ -1,80 +1,75 @@
+/*  a) Write a C program that uses functions to create a singly linked list */
 #include<stdio.h>
 #include<stdlib.h>
 struct node
 {
 	int data;
-	struct node * next;
+	struct node* next;
 };
-struct node * start=NULL;
-struct node * createll(struct node*, int);
-void display(struct node*);
+struct node* start = NULL;
+struct node* createll(struct node *);
+void display(struct node *);
 void main()
 {
-	int option,iter;
+	int option,val;
 	do
-    {
-    	printf("\n\n***MAIN MENU***");
-    	printf("\nenter 1 : To create list.");
-    	printf(" \nenter 2 : To display a list.");
-    	printf("\nenter 3 : To exit.");
-    	printf("\nenter the option :");
-    	scanf("%d",&option);
-    	switch(option)
-    	{
-    		case 1:
-    			printf("enter the size of list :");
-				scanf("%d",&iter);
-    			start=createll(start,iter);
-    			printf("\n linked list is created");
-    			break;
-    	    case 2:
-			    display(start);
-			    break;    
+	{
+		printf("\n\n *****MAIN MENU *****");
+ 		printf("\n 1: Create a list");
+ 		printf("\n 2: Display the list");
+		printf("\n 3: Exit");
+		printf("\nenter your option: ");
+		scanf("%d",&option);
+		switch(option)
+		{
+			case 1:
+				start = createll(start);
+				printf("\n linked list is created");
+				break;
+			case 2:
+				display (start);
+				break;
 		}
 	}while(option != 3);
-	
 }
-struct node * createll(struct node*start, int iter)
+struct node* createll(struct node* start)
 {
-	struct node*newnode,*ptr;
-	int i,n;
-	printf("enter %d elements: ",iter);
-	for(i=0; i<iter ; i++)
+	struct node *newnode; 
+	struct node *ptr;
+	int num;
+	printf("\n enter the data or -1 to end: ");
+	scanf("%d",&num);
+	while(num!= -1)
 	{
-		newnode=(struct node*)malloc(sizeof(struct node));
-		scanf("%d",&n);;
-		if(start==NULL)
+		newnode = (struct node *)malloc(sizeof(struct node));
+		newnode->data=num;
+		if(start == NULL)
 		{
-			start=newnode;
-			newnode->data=n;
 			newnode->next=NULL;
+			start=newnode;
 		}
 		else
 		{
-			ptr=start;
-			newnode->data=n;
-		   	while(ptr->next!=NULL)
-		   		ptr=ptr->next;
-		   	ptr->next=newnode;
-		   	newnode->next=NULL;
-		}
+			ptr = start;
+			while(ptr->next != NULL)
+			{
+				ptr = ptr->next;
+				}	
+			ptr->next = newnode;
+			newnode->next=NULL;
+	    }
+	    printf("\n enter the data: ");
+	    scanf("%d",&num); 
+	   }
+	   return start;
 	}
-	return start;
-}
- void display(struct node*start)
-{
-	struct node*ptr;
-	ptr=start;
-	if(start==NULL)
+	void display(struct node* start)
 	{
-		printf("List does not exist!");
-	}
-	else
-	{
-		while(ptr!=NULL)
+		struct node * ptr;
+		ptr=start;
+		while (ptr != NULL)
 		{
-			printf("%d\t",ptr->data);
+			printf("%d\t ", ptr->data);
 			ptr=ptr->next;
 		}
 	}
-}
