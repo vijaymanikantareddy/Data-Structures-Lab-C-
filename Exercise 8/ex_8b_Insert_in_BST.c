@@ -12,7 +12,6 @@ struct node *root=NULL;
 
 struct node *create(struct node *);
 void display(struct node *);
-struct node* search(struct node*, int);
 struct node* insert(struct node*, int);
 
 void main()
@@ -23,9 +22,8 @@ void main()
 		printf("\n\n *** MAIN MENU *** ");
 		printf("\n 1. create");
 		printf("\n 2. display");
-		printf("\n 3. search");
-		printf("\n 4. insert a new node");
-		printf("\n 5. Quit");
+		printf("\n 3. insert a new node");
+		printf("\n 4. Quit");
 		printf("\n Enter your choice\n");
 		scanf("%d",&option);
 		switch (option)
@@ -37,22 +35,15 @@ void main()
 				printf("\n The elements in the tree are\n");
 				display(root);
 				break;
-			case 3:
-				printf("\n enter the element which you want to search: ");
-				scanf("%d",&val);
-				root=search(root, val);
-				if(root==NULL)
-					printf("\n element not found in a BST");
-				else 
-					printf("\n element found in a BST");
-				break;
-			case 4: 
+			case 3: 
 				printf("\n Enter an element to insert in BSt: ");
 				scanf("%d",&val);
 				root= insert(root, val);
 				break;
+			default:
+				printf("enter correct option!");
 		}
-	}while(option<5);
+	}while(option<4);
 }
 
 
@@ -103,15 +94,6 @@ void display(struct node *root)
 		printf("\n %5d",root->data);
 		display (root->right);
 	}
-}
-
-struct node* search(struct node* root, int key)
-{
-	if (root == NULL || root->data == key)
-		return root;
-	if (root->data < key)
-		return search(root->right, key);
-	return search(root->left, key);
 }
 
 struct node* insert(struct node* root, int val)
