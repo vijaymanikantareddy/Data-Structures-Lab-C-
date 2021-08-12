@@ -4,7 +4,7 @@
 struct node
 {
 	int data;
-	struct noden* next;
+	struct node* next;
 };
 struct node* start = NULL;
 struct node* createll(struct node *);
